@@ -17,7 +17,7 @@ Plug 'vimwiki/vimwiki'
 Plug 'bling/vim-airline'
 Plug 'tpope/vim-commentary'
 Plug 'vifm/vifm.vim'
-"Plug 'suan/vim-instant-markdown', {'for': 'markdown'}
+Plug 'kovetskiy/sxhkd-vim'
 call plug#end()
 
 set bg=light
@@ -108,6 +108,9 @@ set cursorline
 
 " Run xrdb whenever Xdefaults or Xresources are updated.
 	autocmd BufWritePost *Xresources,*Xdefaults !xrdb %
+
+" Update binds when sxhkdrc is updated.
+	autocmd BufWritePost *sxhkdrc !pkill -USR1 sxhkd
 
 " Navigating with guides
 	inoremap <leader><leader> <Esc>/<++><Enter>"_c4l

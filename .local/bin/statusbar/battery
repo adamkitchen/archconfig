@@ -1,7 +1,19 @@
 #!/bin/sh
 # Give a battery name (e.g. BAT0) as an argument.
 
+capacity=$(cat /sys/class/power_supply/"$1"/capacity) || exit
+status=$(cat /sys/class/power_supply/"$1"/status)
+
 case $BLOCK_BUTTON in
+	1) if [ "$status" = "Charging" ]; then notify-send -i ~/.local/share/icons/battery-charging.png "Battery level: $capacity%" "$(acpi |awk '{print $5 " " $6 " " $7 " " $8}')"
+	else
+		if [ "$capacity" -ge 75 ]; then notify-send -i ~/.local/share/icons/battery-high.png "Battery level: $capacity%" "$(acpi |awk '{print $5 " " $6 " " $7 " " $8}')"
+			elif [ "$capacity" -ge 25 ]; then notify-send -i ~/.local/share/icons/battery-medium.png "Battery level: $capacity%" "$(acpi |awk '{print $5 " " $6 " " $7 " " $8}')"
+			elif [ "$capacity" -ge 15 ]; then notify-send -i ~/.local/share/icons/battery-low.png "Battery level: $capacity%" "$(acpi |awk '{print $5 " " $6 " " $7 " " $8}')"
+			elif [ "$capacity" -ge 11 ]; then notify-send -i ~/.local/share/icons/battery-none.png "Battery level: $capacity%" "$(acpi |awk '{print $5 " " $6 " " $7 " " $8}')"
+			elif [ "$capacity" -le 10 ]; then notify-send -i ~/.local/share/icons/warning.png "Battery level: $capacity%" "$(acpi |awk '{print $5 " " $6 " " $7 " " $8}')"
+			fi
+		fi;;
     3) pgrep -x dunst >/dev/null && notify-send "🔋 Battery module" "🔋: discharging
 🛑: not charging
 ♻: stagnant charge
@@ -11,19 +23,22 @@ case $BLOCK_BUTTON in
 - Text color reflects charge left" ;;
 esac
 
-capacity=$(cat /sys/class/power_supply/"$1"/capacity) || exit
-status=$(cat /sys/class/power_supply/"$1"/status)
-
 if [ "$capacity" -ge 75 ]; then
 	color="#00ff00"
 elif [ "$capacity" -ge 50 ]; then
 	color="#ffffff"
 elif [ "$capacity" -ge 25 ]; then
 	color="#ffff00"
+elif [ "$capacity" -le 10 ] && [ "$capacity" != "$(cat ~/.local/share/battery)" ]; then
+		notify-send -i "🔋""Battery Level Low!!!" "Plug it in or else
+* Battery is at $capacity%
+* $(acpi | awk '{print $5 " " $6 " " $7 " " $8}')"
 else
 	color="#ff0000"
 	warn="❗"
 fi
+
+echo $capacity > ~/.local/share/battery
 
 [ -z $warn ] && warn=" "
 

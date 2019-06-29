@@ -8,10 +8,10 @@ case $BLOCK_BUTTON in
 	1) if [ "$status" = "Charging" ]; then notify-send -i ~/.local/share/icons/battery-charging.png "Battery level: $capacity%" "$(acpi |awk '{print $5 " " $6 " " $7 " " $8}')"
 	else
 		if [ "$capacity" -ge 75 ]; then notify-send -i ~/.local/share/icons/battery-high.png "Battery level: $capacity%" "$(acpi |awk '{print $5 " " $6 " " $7 " " $8}')"
-			elif [ "$capacity" -ge 25 ]; then notify-send -i ~/.local/share/icons/battery-medium.png "Battery level: $capacity%" "$(acpi |awk '{print $5 " " $6 " " $7 " " $8}')"
-			elif [ "$capacity" -ge 15 ]; then notify-send -i ~/.local/share/icons/battery-low.png "Battery level: $capacity%" "$(acpi |awk '{print $5 " " $6 " " $7 " " $8}')"
-			elif [ "$capacity" -ge 11 ]; then notify-send -i ~/.local/share/icons/battery-none.png "Battery level: $capacity%" "$(acpi |awk '{print $5 " " $6 " " $7 " " $8}')"
-			elif [ "$capacity" -le 10 ]; then notify-send -i ~/.local/share/icons/warning.png "Battery level: $capacity%" "$(acpi |awk '{print $5 " " $6 " " $7 " " $8}')"
+			elif [ "$capacity" -ge 25 ]; then notify-send -i ~/.local/share/icons/battery/battery-medium.png "Battery level: $capacity%" "$(acpi |awk '{print $5 " " $6 " " $7 " " $8}')"
+			elif [ "$capacity" -ge 15 ]; then notify-send -i ~/.local/share/icons/battery/battery-low.png "Battery level: $capacity%" "$(acpi |awk '{print $5 " " $6 " " $7 " " $8}')"
+			elif [ "$capacity" -ge 11 ]; then notify-send -i ~/.local/share/icons/battery/battery-none.png "Battery level: $capacity%" "$(acpi |awk '{print $5 " " $6 " " $7 " " $8}')"
+			elif [ "$capacity" -le 10 ]; then notify-send -i ~/.local/share/icons/battery/warning.png "Battery level: $capacity%" "$(acpi |awk '{print $5 " " $6 " " $7 " " $8}')"
 			fi
 		fi;;
     3) pgrep -x dunst >/dev/null && notify-send "🔋 Battery module" "🔋: discharging

@@ -163,7 +163,43 @@ is installed.
 \f(CWMod+Delete\fP \(en
 .ITEM
 \f(CWMod+Shift+Delete\fP \(en 'Hide me' mode
-
+.ITEM
+\f(CWMod+q\fP \(en Close window
+.ITEM
+\f(CWMod+Q\fP \(en Force close window
+.ITEM
+\f(CWMod+w\fP \(en nmtui (for connecting to wireless internet)
+.ITEM
+\f(CWMod+W\fP \(en Web Browser
+.ITEM
+\f(CWMod+e\fP \(en mutt (email; not installed by default, see below)
+.ITEM
+\f(CWMod+E\fP \(en to get be able to watch tutorial videos on
+specific programs or concepts directly from YouTube.
+.ITEM
+\f(CWMod+r\fP \(en vifm (file browser/manager)
+.ITEM
+\f(CWMod+R\fP \(en resize a floating window to give size (width height)
+.ITEM
+\f(CWMod+t\fP \(en Toggle between spawning vertically and horizontally\c
+.FOOTNOTE
+You may notice that one side of your window border is a different color.
+This indicates the direction that the next window will spawn.
+.FOOTNOTE END
+.ITEM
+\f(CWMod+T\fP \(en Restore gaps to default (15 pixels)
+.ITEM
+\f(CWMod+y\fP \(en calcurse (calendar and schedule)
+.ITEM
+\f(CWMod+u\fP \(en "Dropdown" terminal (hide with \f(CWmod+u\fP)
+.ITEM
+\f(CWMod+i\fP \(en htop (system info)
+.ITEM
+\f(CWMod+o\fP \(en Make floating window sticky (will stay on active workspace)
+.ITEM
+\f(CWMod+Y/U/I/O\fP \(en Resize windows
+.ITEM
+\f(CWMod+p\fP \(en Pause
 
 
 

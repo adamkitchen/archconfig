@@ -1,13 +1,13 @@
-#!/bin/sh
+#/bin/sh
 # Give a battery name (e.g. BAT0) as an argument.
 
 capacity=$(cat /sys/class/power_supply/"$1"/capacity) || exit
 status=$(cat /sys/class/power_supply/"$1"/status)
 
 case $BLOCK_BUTTON in
-	1) if [ "$status" = "Charging" ]; then notify-send -i ~/.local/share/icons/battery-charging.png "Battery level: $capacity%" "$(acpi |awk '{print $5 " " $6 " " $7 " " $8}')"
+	1) if [ "$status" = "Charging" ]; then notify-send -i ~/.local/share/icons/battery/battery-charging.png "Battery level: $capacity%" "$(acpi |awk '{print $5 " " $6 " " $7 " " $8}')"
 	else
-		if [ "$capacity" -ge 75 ]; then notify-send -i ~/.local/share/icons/battery-high.png "Battery level: $capacity%" "$(acpi |awk '{print $5 " " $6 " " $7 " " $8}')"
+		if [ "$capacity" -ge 75 ]; then notify-send -i ~/.local/share/icons/battery/battery-high.png "Battery level: $capacity%" "$(acpi |awk '{print $5 " " $6 " " $7 " " $8}')"
 			elif [ "$capacity" -ge 25 ]; then notify-send -i ~/.local/share/icons/battery/battery-medium.png "Battery level: $capacity%" "$(acpi |awk '{print $5 " " $6 " " $7 " " $8}')"
 			elif [ "$capacity" -ge 15 ]; then notify-send -i ~/.local/share/icons/battery/battery-low.png "Battery level: $capacity%" "$(acpi |awk '{print $5 " " $6 " " $7 " " $8}')"
 			elif [ "$capacity" -ge 11 ]; then notify-send -i ~/.local/share/icons/battery/battery-none.png "Battery level: $capacity%" "$(acpi |awk '{print $5 " " $6 " " $7 " " $8}')"

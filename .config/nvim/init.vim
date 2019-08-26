@@ -30,6 +30,7 @@ set cursorline
 
 " Indentions
 	autocmd FileType html setlocal shiftwidth=2 tabstop=2
+	autocmd FileType css setlocal shiftwidth=2 tabstop=2
 	autocmd FileType python setlocal expandtab shiftwidth=4 softtabstop=4
 
 " Some basics:
@@ -163,8 +164,12 @@ set cursorline
 	autocmd FileType tex inoremap ,rn (\ref{})<++><Esc>F}i
 
 """HTML
-	autocmd FileType html inoremap ,b <b></b><Space><++><Esc>FbT>i
-	autocmd FileType html inoremap ,it <em></em><Space><++><Esc>FeT>i
+	autocmd FileType html set omnifunc=htmlcomplete#CompleteTags
+	autocmd Filetype html imap <C-Space> <C-X><C-O>
+	" 	:iabbrev </ </<C-X><C-O>
+
+	autocmd FileType html inoremap ,b <b></b><Space><Esc>FbT>i
+	autocmd FileType html inoremap ,it <em></em><Space><Esc>FeT>i
 	autocmd FileType html inoremap ,1 <h1></h1><Enter><Enter><++><Esc>2kf<i
 	autocmd FileType html inoremap ,2 <h2></h2><Enter><Enter><++><Esc>2kf<i
 	autocmd FileType html inoremap ,3 <h3></h3><Enter><Enter><++><Esc>2kf<i

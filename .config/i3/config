@@ -27,8 +27,8 @@ set $hibernate sudo -A systemctl suspend
 # Mod4	Windows Key
 # Mod5
 
-bindsym Mod2+a	exec $term
-bindsym Mod1+a	exec --no-startup-id groff -mom ~/.local/share/lenny/keys.mom -T pdf | zathura -
+# bindsym Mod2+a	exec $term
+# bindsym Mod1+a	exec --no-startup-id groff -mom ~/.local/share/lenny/keys.mom -T pdf | zathura -
 
 # #---Dropdown Windows---# #
 # General dropdown window traits. The order can matter.

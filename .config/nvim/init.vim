@@ -32,6 +32,7 @@ set cursorline
 	autocmd FileType html setlocal shiftwidth=2 tabstop=2
 	autocmd FileType css setlocal shiftwidth=2 tabstop=2
 	autocmd FileType python setlocal expandtab shiftwidth=4 softtabstop=4
+	autocmd FileType tex setlocal expandtab shiftwidth=4 softtabstop=4
 
 " Some basics:
 	nnoremap c "_c

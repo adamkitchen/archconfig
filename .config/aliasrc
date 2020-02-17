@@ -26,7 +26,7 @@ alias ka="killall" \
 	lsp="pacman -Qett --color=always | less" \
 	ffmpeg="ffmpeg -hide_banner"\
 	config='/usr/bin/git --git-dir=/home/adamkitchen/.cfg/ --work-tree=/home/adamkitchen'\
-	sst='cd ~/Games/sst/saves && ./sst && cd '\
+	sst='clear && cd ~/Games/sst/saves && ./sst && cd '\
 	cll='clear && ls -al'
 	cllg='cll && git status'
 command -v nvim >/dev/null && alias vim="nvim" vimdiff="nvim -d" # Use neovim for vim if present.

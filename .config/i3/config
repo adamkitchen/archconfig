@@ -164,6 +164,8 @@ bindsym $mod+c			exec --no-startup-id cabl
 bindsym $mod+Shift+c		exec --no-startup-id camtoggle
 
 bindsym $mod+v			exec --no-startup-id $term -e $EDITOR -c "VimwikiIndex"
+bindsym $mod+Shift+v		exec calibre
+## calibre is an ebook reader.
 #bindsym $mod+Shift+v		workspace $ws4; exec $term -e less -S "$HOME/.local/share/weatherreport"
 
 bindsym $mod+b			bar mode toggle
